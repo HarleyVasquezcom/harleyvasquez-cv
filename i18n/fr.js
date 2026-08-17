@@ -115,7 +115,7 @@ window.I18N.fr = {
   "proj.c4.talk": "PWA multi-pages de 34 vues avec SEO local par localité, orientée conversions à Bogotá.",
   "proj.c5.role": "Blog et hub d'apprentissage",
   "proj.c5.talk": "18 articles par zone pour capter les recherches long-tail, sitemap de 58 pages.",
-  "proj.c6.sub": "codepen.io/your-work",
+  "proj.c6.sub": "codepen.io/harleyvasquezcom",
   "proj.c6.talk": "Démo, expériences d'interface et composants isolés. Collection publique de tests de design frontend.",
   "proj.c7.role": "Startup · En développement",
   "proj.c7.talk": "Plateforme marketplace à double face (acheteurs/vendeurs) avec panneau d'administration, commissions et modération.",
