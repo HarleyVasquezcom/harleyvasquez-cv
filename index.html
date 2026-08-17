@@ -284,6 +284,48 @@ footer { border-top:1px solid var(--line-soft); padding:56px 0 34px; background:
 }
 .footer-bottom .tag { color:var(--accent); }
 
+@media print {
+  @page { size: A4; margin: 11mm 10mm; }
+  html { scroll-behavior:auto; }
+  body {
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+    font-size:12px; background:#09090b; color:#fafafa;
+  }
+  .nav, .mobile-menu, .burger, .hero-ctas, .nav-cta { display:none !important; }
+  .hero-grid, .hero-bg { display:none !important; }
+  .hero { min-height:auto; padding:36px 0 26px; }
+  .hero h1 { font-size:40px; }
+  .hero p.sub { font-size:13px; max-width:100%; }
+  .hero-tag { margin-bottom:16px; }
+  .stats { margin-top:24px; padding:18px 22px; }
+  .stat-num { font-size:26px; }
+  .hero-meta { margin-top:22px; gap:16px; font-size:11px; }
+  section { padding:26px 0 !important; }
+  h2.title { font-size:24px; }
+  .lead { font-size:13px; max-width:100%; }
+  .card-grid, .skills-grid, .exp-grid, .chips { margin-top:22px; gap:10px; }
+  .card, .exp-row, .stat-cell { break-inside:avoid; page-break-inside:avoid; }
+  .card-grid { grid-template-columns:repeat(3,1fr); }
+  .skills-grid { grid-template-columns:repeat(2,1fr); }
+  .card { padding:16px 18px; }
+  .card h3 { font-size:13px; }
+  .card .talk { font-size:11px; margin-top:8px; padding-top:8px; }
+  .card .role { font-size:10px; }
+  .exp-row { padding:16px 20px; }
+  .exp-row h3 { font-size:14px; }
+  .exp-row li { font-size:11px; margin-bottom:4px; }
+  .exp-period { font-size:11px; }
+  .chip { font-size:10px; padding:5px 10px; }
+  .skill { font-size:12px; }
+  .skill-bar { height:5px; }
+  .reveal { opacity:1 !important; transform:none !important; }
+  .eyebrow { margin-bottom:8px; }
+  footer { padding:22px 0 8px; }
+  .footer-grid, .footer-bottom { font-size:10px; }
+  a { color:inherit; }
+}
+
 @media (max-width:980px) {
   .card-grid { grid-template-columns:repeat(2,1fr); }
   .skills-grid { grid-template-columns:1fr; }
@@ -706,6 +748,9 @@ footer { border-top:1px solid var(--line-soft); padding:56px 0 34px; background:
   var DEFAULTS = ["es", "en", "de", "pt", "it", "fr"];
 
   function currentLang() {
+    var q = null;
+    try { q = new URLSearchParams(window.location.search).get("lang"); } catch (e) {}
+    if (q && window.I18N[q]) return q;
     var saved = null;
     try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
     if (saved && window.I18N[saved]) return saved;
