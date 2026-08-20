@@ -1,1 +1,699 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harley Vásquez | Ingeniero Informático · Desarrollador Web Frontend</title>
+    <meta name="description" content="Curriculum Vitae de Harley Vásquez - Ingeniero Informático y Desarrollador Web Frontend. React, Next.js, TypeScript, TI y ciberseguridad.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --bg-alt: #141414;
+            --card: #1a1a1a;
+            --border: #262626;
+            --text: #e8e6e3;
+            --text-muted: #9a9a97;
+            --accent: #c9a966;
+            --accent-light: #d4b57a;
+            --accent-dark: #a68a4d;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 48px 32px 64px;
+        }
+
+        .print-only { display: none; }
+
+        /* Header */
+        header {
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            padding: 40px 44px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(600px 200px at 100% 0%, rgba(201,169,102,0.08) 0%, transparent 60%),
+                radial-gradient(400px 200px at 0% 100%, rgba(201,169,102,0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            position: relative;
+        }
+
+        .role {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 9px;
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 8px 28px;
+            margin-top: 28px;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .contact-grid a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+
+        .contact-grid a:hover { color: var(--accent-light); }
+
+        .contact-grid .lbl {
+            color: var(--accent);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+
+        .contact-grid .sep { color: #3a3a3a; margin: 0 2px; }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+
+        .stat {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--card);
+            padding: 18px 20px;
+            text-align: center;
+        }
+
+        .stat .num {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--accent);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat .cap {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            letter-spacing: 0.02em;
+        }
+
+        /* Sections */
+        section { margin-bottom: 36px; }
+
+        h2 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .period {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-light);
+            white-space: nowrap;
+        }
+
+        .sub {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 3px 0 10px;
+        }
+
+        p { color: var(--text); font-size: 0.95rem; }
+
+        p.muted { color: var(--text-muted); font-size: 0.9rem; }
+
+        ul { list-style: none; margin-top: 8px; }
+
+        ul li {
+            position: relative;
+            padding-left: 18px;
+            font-size: 0.92rem;
+            color: #cfcdc9;
+            margin-bottom: 7px;
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.62em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-dark);
+        }
+
+        .card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--card);
+            padding: 22px 26px;
+            margin-bottom: 14px;
+        }
+
+        /* Skills */
+        .skills { margin-top: 14px; }
+
+        .skill {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 11px;
+            font-size: 0.88rem;
+            color: #d6d4cf;
+        }
+
+        .skill .bar {
+            grid-column: 1 / -1;
+            height: 5px;
+            background: #232323;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: -6px;
+        }
+
+        .skill .fill {
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, var(--accent-dark), var(--accent-light));
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.74rem;
+            color: var(--accent-light);
+            border: 1px solid #3a3a3a;
+            background: #161616;
+            padding: 4px 11px;
+            border-radius: 999px;
+            letter-spacing: 0.02em;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 14px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 22px;
+            border-top: 1px solid var(--border);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        footer a { color: var(--text-muted); text-decoration: none; }
+        footer a:hover { color: var(--accent-light); }
+
+        @media (max-width: 640px) {
+            .page { padding: 24px 16px 40px; }
+            header { padding: 28px 22px; }
+            .name { font-size: 1.9rem; }
+        }
+
+        @media print {
+            body { background: #fff; color: #111; }
+            .page { padding: 0; max-width: 100%; }
+            header, .card { border-color: #ccc; background: #fff; }
+            h2 { color: #8a6d2f; }
+            h2::after { background: #d9d9d9; }
+            ul li { color: #222; }
+            ul li::before { background: #8a6d2f; }
+            .skill .bar, .fill { background: #e0e0e0 !important; }
+            .skill .fill { background: linear-gradient(90deg, #a68a4d, #c9a966) !important; }
+            .tag { border-color: #ccc; background: #fff; color: #555; }
+            .stat .num { color: #8a6d2f; }
+            .stat, .stats { border-color: #ccc; }
+            footer { border-color: #ccc; }
+            .period, .lbl { color: #555; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <header>
+            <div class="name">Harley Vásquez</div>
+            <div class="role">Ingeniero Informático · Desarrollador Web Frontend</div>
+            <div class="contact-grid">
+                <span><span class="lbl">WhatsApp</span><span class="sep">|</span><a href="https://wa.me/573182020729" target="_blank" rel="noopener">+57 318 202 0729</a></span>
+                <span><span class="lbl">Email</span><span class="sep">|</span><a href="mailto:harleyvasquez@icloud.com">harleyvasquez@icloud.com</a></span>
+                <span><span class="lbl">LinkedIn</span><span class="sep">|</span><a href="https://linkedin.com/in/harleyvasquez" target="_blank" rel="noopener">linkedin.com/in/harleyvasquez</a></span>
+                <span><span class="lbl">GitHub</span><span class="sep">|</span><a href="https://github.com/HarleyVasquezcom" target="_blank" rel="noopener">github.com/HarleyVasquezcom</a></span>
+                <span><span class="lbl">CodePen</span><span class="sep">|</span><a href="https://codepen.io/your-work" target="_blank" rel="noopener">codepen.io/your-work</a></span>
+                <span><span class="lbl">Web</span><span class="sep">|</span><a href="https://harleyvasqueztech.vercel.app" target="_blank" rel="noopener">harleyvasqueztech.vercel.app</a></span>
+                <span><span class="lbl">Web</span><span class="sep">|</span><a href="https://harleyvasquez.vercel.app" target="_blank" rel="noopener">harleyvasquez.vercel.app</a></span>
+                <span><span class="lbl">Ubicación</span><span class="sep">|</span><span>Chapinero, Bogotá, Colombia</span></span>
+            </div>
+        </header>
+
+        <div class="stats">
+            <div class="stat"><div class="num">+20</div><div class="cap">Años de experiencia</div></div>
+            <div class="stat"><div class="num">1.200+</div><div class="cap">Equipos atendidos (TI)</div></div>
+            <div class="stat"><div class="num">98%</div><div class="cap">Clientes satisfechos</div></div>
+            <div class="stat"><div class="num">49</div><div class="cap">Web apps en Vercel</div></div>
+        </div>
+
+        <section>
+            <h2>Perfil profesional</h2>
+            <p>Ingeniero informático y emprendedor digital con más de 20 años de experiencia. Como <strong>Desarrollador Web Frontend</strong> (2002-presente) construyo experiencias web de alto nivel con React, Next.js y TypeScript, y como fundador de <strong>Harley Vásquez Tech</strong> lidero una empresa unipersonal de soporte técnico y TI que ha atendido a más de 1.200 equipos en Bogotá con 98% de satisfacción.</p>
+            <p style="margin-top:12px;">Combinación única en Colombia: desarrollo frontend moderno (React, Next.js, TypeScript, Tailwind, Chrome MV3) integrado con infraestructura TI (redes, ciberseguridad Fortinet, cloud M365/Google Workspace, videovigilancia) y estrategia digital (SEO local, generación de leads con IA, Google Business Profile) — del código al territorio de venta.</p>
+            <p style="margin-top:12px;">Desde 2026 conduzco el desarrollo de productos mediante un sistema agéntico con la plataforma Traycer, construyendo y verificando con pruebas automatizadas (Playwright + probes herméticas) un portafolio de 49 web apps, 20 extensiones Chrome MV3 y un sitio de servicios TI de 34 páginas, todo desplegado en Vercel.</p>
+        </section>
+
+        <section>
+            <h2>Competencias principales</h2>
+            <div class="skills">
+                <div class="skill">Desarrollo web frontend (HTML, CSS, JavaScript)<span>96%</span><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+                <div class="skill">React · Next.js 16 · TypeScript<span>92%</span><div class="bar"><div class="fill" style="width:92%"></div></div></div>
+                <div class="skill">Node.js · Vercel · Git/GitHub<span>88%</span><div class="bar"><div class="fill" style="width:88%"></div></div></div>
+                <div class="skill">Soporte TI · Mantenimiento PC<span>98%</span><div class="bar"><div class="fill" style="width:98%"></div></div></div>
+                <div class="skill">Redes · Cableado · Wi-Fi<span>90%</span><div class="bar"><div class="fill" style="width:90%"></div></div></div>
+                <div class="skill">Ciberseguridad · Backup 3-2-1<span>84%</span><div class="bar"><div class="fill" style="width:84%"></div></div></div>
+                <div class="skill">Cloud (M365, Google Workspace)<span>86%</span><div class="bar"><div class="fill" style="width:86%"></div></div></div>
+                <div class="skill">Videovigilancia · Control de acceso<span>88%</span><div class="bar"><div class="fill" style="width:88%"></div></div></div>
+                <div class="skill">SEO local · Google Business Profile<span>88%</span><div class="bar"><div class="fill" style="width:88%"></div></div></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Tecnologías y herramientas</h2>
+
+            <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">Next.js 16 App Router</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Tailwind v4</span>
+                <span class="tag">Framer Motion</span>
+                <span class="tag">Canvas</span>
+                <span class="tag">Web Audio API</span>
+                <span class="tag">PWA / Service Workers</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">GraphQL</span>
+                <span class="tag">Docker</span>
+                <span class="tag">AWS</span>
+                <span class="tag">Chrome MV3</span>
+                <span class="tag">declarativeNetRequest</span>
+                <span class="tag">Playwright</span>
+                <span class="tag">MikroTik</span>
+                <span class="tag">Ubiquiti</span>
+                <span class="tag">Cisco</span>
+                <span class="tag">Fortinet</span>
+                <span class="tag">Sophos</span>
+                <span class="tag">Hikvision</span>
+                <span class="tag">Dahua</span>
+                <span class="tag">Synology</span>
+                <span class="tag">QNAP</span>
+                <span class="tag">Dell PowerEdge</span>
+                <span class="tag">VMware</span>
+                <span class="tag">Microsoft 365</span>
+                <span class="tag">Google Workspace</span>
+                <span class="tag">Google Business Profile</span>
+                <span class="tag">WhatsApp Business</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Portafolio web — proyectos para clientes</h2>
+            <p class="muted" style="margin-bottom:12px;">Sitios web corporativos, comerciales y de servicios desarrollados y desplegados para PYMES y emprendimientos de Colombia y España. Réplicas locales disponibles en mi portafolio y en CodePen.</p>
+            <div class="two-col">
+                <div class="card"><h3>Cenprosis</h3><div class="sub">cenprosis.co</div><p class="muted">Asesorías y soluciones de cómputo. Sitio comercial multi-página (index, nosotros, productos y contactenos).</p></div>
+                <div class="card"><h3>Guido Abogados</h3><div class="sub">guidoabogados.org</div><p class="muted">"15 años previniendo conflictos y demandas". Sitio corporativo con servicios, doctores, blog, galería, FAQ y contacto.</p></div>
+                <div class="card"><h3>Lhex Rojas Abogados</h3><div class="sub">lhexrojasabogados.es</div><p class="muted">Abogados especialistas en extranjería e inmigración. Sitio en español con nosotros, servicios, blog y contacto.</p></div>
+                <div class="card"><h3>Distrimatamoros</h3><div class="sub">distrimatamoros.co</div><p class="muted">Productos de marroquinería. Catálogo y presencia comercial.</p></div>
+                <div class="card"><h3>Divetour</h3><div class="sub">divetour.co</div><p class="muted">Turismo. Sitio comercial orientado a reservas y destinos.</p></div>
+                <div class="card"><h3>Fundación Colombia Patria Mía</h3><div class="sub">fundacioncolombiapatriamia.co</div><p class="muted">Sitio institucional para fundación social.</p></div>
+                <div class="card"><h3>Artellez Publicidad</h3><div class="sub">artellezpublicidad.com</div><p class="muted">Agencia de publicidad. Sitio corporativo y vitrina de servicios.</p></div>
+                <div class="card"><h3>Invergraf</h3><div class="sub">invergraf.co</div><p class="muted">Sitio comercial con productos, servicios, nosotros y contacto.</p></div>
+                <div class="card"><h3>Inaudio</h3><div class="sub">inaudio.com</div><p class="muted">Sitio corporativo para marca de audio.</p></div>
+                <div class="card"><h3>Losada Billares</h3><div class="sub">lozadabillares.co</div><p class="muted">Billares y entretenimiento. Sitio comercial local.</p></div>
+                <div class="card"><h3>Ópticas Multivisión</h3><div class="sub">opticasmultivision.co</div><p class="muted">Ópticas. Presencia comercial y de servicios.</p></div>
+                <div class="card"><h3>Proyectos Apulo</h3><div class="sub">proyectosapulo.com</div><p class="muted">Inmuebles en venta y alquiler. Vitrina de propiedades.</p></div>
+                <div class="card"><h3>Riso Publicidad</h3><div class="sub">risopublicidad.com</div><p class="muted">Publicidad y diseño. Sitio corporativo.</p></div>
+                <div class="card"><h3>VETTAZ Mobiliario &amp; Interior</h3><div class="sub">Diseño y conceptualización de identidad visual</div><p class="muted">Fase 02 de construcción de marca (brand construction): moodboards, tipografías (Myriad Pro, Helvetica Now, Acumin) y piezas de identidad.</p></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Experiencia profesional</h2>
+
+            <div class="card">
+                <h3>Desarrollador Web Frontend <span class="period">2002 - Presente</span></h3>
+                <div class="sub">Harley Vásquez (Freelance) · Bogotá, Colombia</div>
+                <ul>
+                    <li>Diseño mobile-first y responsive en todo el portfolio de productos web.</li>
+                    <li>Pruebas cross-browser, equipos multifuncionales y desarrollo ágil (Scrum).</li>
+                    <li>Aplicaciones web modernas con React, Next.js (App Router), TypeScript y Tailwind CSS.</li>
+                    <li>Animaciones y motion design con Framer Motion y Canvas (Web Audio, visualizadores).</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Webmaster <span class="period">2008 - Presente</span></h3>
+                <div class="sub">harleyvasquez.com · Bogotá, Colombia</div>
+                <ul>
+                    <li>Administración y evolución continua del sitio personal y corporativo.</li>
+                    <li>SEO técnico, optimización de rendimiento y presencia web de marca.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Fundador &amp; Ingeniero Informático <span class="period">10+ años</span></h3>
+                <div class="sub">Harley Vásquez Tech (Empresa Unipersonal) · Bogotá, Colombia</div>
+                <ul>
+                    <li>Soporte técnico y mantenimiento de computadores, redes y conectividad, ciberseguridad (Fortinet), cloud (Microsoft 365, Google Workspace), servidores/NAS, backup y videovigilancia para hogares y PYMES.</li>
+                    <li>Respuesta en minutos, visita técnica en menos de 24 h, garantía escrita en cada servicio y facturación electrónica.</li>
+                    <li>Lideré una campaña de 7 agentes de IA: 884 leads únicos de PYMES curados en 18 localidades de Bogotá.</li>
+                    <li>Estrategia de mercadeo 100% orgánica: SEO local, Google Business Profile, reseñas, WhatsApp Business y embudo de ventas.</li>
+                    <li>Clientes con contrato y facturación: Cenprosis (mantenimiento de equipos, hosting y dominio 2022-2026, puntos de red), CDS-CONSTRUSEG (puesta en marcha de red), Boing Marketing (soporte mensual y reparación de equipos 2025), Daniel Espitia (servidor/PC/repuestos 2026), Pasadena (puntos de red), Ciudad Bolívar (cámaras de vigilancia), Centoto (reflectores LED), Lili Garcia (ensamble PC Intel/AMD 2024), DANDY (hosting y dominio 2019).</li>
+                    <li>Desarrollo web por proyecto: sitios para Cenprosis, Guido Abogados, Lhex Rojas Abogados, Ópticas Multivisión, Distrimatamoros, Proyectos Apulo y más (ver Portafolio web).</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Desarrollo agéntico con IA <span class="period">2026</span></h3>
+                <div class="sub">Dirección de desarrollo de productos · Traycer</div>
+                <ul>
+                    <li>Dirección de desarrollo de productos mediante un sistema multiagente con la plataforma Traycer: un orquestador de agentes IA construye, una auditoría independiente verifica, y cada funcionalidad está cubierta por pruebas automatizadas (Playwright + probes herméticas que validan el comportamiento real sin depender de hosts externos).</li>
+                    <li><strong>Dev Portal</strong> (harleyvasquez.vercel.app): sitio de ingeniero reconstruido con Next.js 16, App Router, SSR, terminal animada, SEO local por 18 localidades y formulario de contacto validado. Suite Playwright 42/42 PASS.</li>
+                    <li><strong>Browser Extensions</strong>: construcción y publicación de 20 extensiones Chrome MV3 reales, cada una con identidad visual única, i18n 6 idiomas, permisos mínimos, código 100% local (chrome.storage), landing Vercel + repo GitHub público + ZIP descargable.</li>
+                    <li><strong>Web demos</strong>: 49 aplicaciones frontend/backend independientes desplegadas en Vercel con 58 URLs indexadas y sitemap.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Proyectos destacados</h2>
+            <div class="two-col">
+                <div class="card">
+                    <h3>Dev Portfolio</h3>
+                    <div class="sub">harleyvasquez.vercel.app</div>
+                    <p class="muted">Portafolio de ingeniero con App Router, SSR, animaciones Framer Motion y sistema de diseño propio.</p>
+                    <div class="tags"><span class="tag">Next.js 16</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span></div>
+                </div>
+                <div class="card">
+                    <h3>49 Web Apps</h3>
+                    <div class="sub">Vercel</div>
+                    <p class="muted">Colección de aplicaciones frontend/backend independientes desplegadas individualmente, con 58 URLs indexadas y sitemap dinámico.</p>
+                    <div class="tags"><span class="tag">Vercel</span></div>
+                </div>
+                <div class="card">
+                    <h3>20 Chrome Extensions (MV3)</h3>
+                    <div class="sub">ShieldBlock, DarkVeil, AssistAI, OpenVault, ...</div>
+                    <p class="muted">Extensiones de productividad, privacidad, utilidad y creatividad. Todas con pruebas automatizadas.</p>
+                    <div class="tags"><span class="tag">Chrome MV3</span><span class="tag">6 idiomas</span></div>
+                </div>
+                <div class="card">
+                    <h3>Sitio de Servicios TI</h3>
+                    <div class="sub">harleyvasqueztech.vercel.app</div>
+                    <p class="muted">PWA multi-página de 34 vistas con SEO local por localidad, orientada a conversiones en Bogotá.</p>
+                    <div class="tags"><span class="tag">PWA</span><span class="tag">34 páginas</span><span class="tag">SEO local</span></div>
+                </div>
+                <div class="card">
+                    <h3>Content Marketing</h3>
+                    <div class="sub">Blog y hub de aprendizaje</div>
+                    <p class="muted">18 artículos por zona para capturar búsquedas long-tail, sitemap de 58 páginas.</p>
+                    <div class="tags"><span class="tag">SEO</span><span class="tag">Blog</span></div>
+                </div>
+                <div class="card">
+                    <h3><a href="https://codepen.io/your-work" target="_blank" rel="noopener" style="color:var(--accent-light);">CodePen — trabajos y demos</a></h3>
+                    <div class="sub">codepen.io/your-work</div>
+                    <p class="muted">Demos, experimentos de interfaz y componentes sueltos compartidos en CodePen API. Colección pública de pruebas de diseño frontend.</p>
+                    <div class="tags"><span class="tag">CodePen</span><span class="tag">HTML/CSS/JS</span></div>
+                </div>
+                <div class="card">
+                    <h3>Marketplace B2C</h3>
+                    <div class="sub">Startup · En desarrollo</div>
+                    <p class="muted">Plataforma marketplace de dos caras (compradores/vendedores) con panel admin, comisiones y moderación.</p>
+                    <div class="tags"><span class="tag">Startup</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Extensiones Chrome MV3</h2>
+            <p class="muted" style="margin-bottom:12px;">20 extensiones reales, una por herramienta. Identidad visual única, i18n 6 idiomas, permisos mínimos y código 100% local (chrome.storage). Las 14 lanzadas pasan rigurosas probes herméticas (56-67 checks cada una).</p>
+            <div class="two-col">
+                <div class="card">
+                    <h3>ShieldBlock</h3>
+                    <div class="sub">67/67 PASS</div>
+                    <p class="muted">Bloquea anuncios y rastreadores con un ruleset local. Privacidad: nada sale del navegador.</p>
+                </div>
+                <div class="card">
+                    <h3>AdPause</h3>
+                    <p class="muted">Bloqueo de anuncios/rastreadores con integración tabs.</p>
+                </div>
+                <div class="card">
+                    <h3>KeyVault</h3>
+                    <p class="muted">Gestor de contraseñas local y seguro.</p>
+                </div>
+                <div class="card">
+                    <h3>OpenVault</h3>
+                    <p class="muted">Cofre de credenciales de código abierto.</p>
+                </div>
+                <div class="card">
+                    <h3>TapVPN</h3>
+                    <p class="muted">Conmutador rápido de VPN (storage-only, sin all_urls).</p>
+                </div>
+                <div class="card">
+                    <h3>DarkVeil</h3>
+                    <p class="muted">Modo oscuro/lector para cualquier página.</p>
+                </div>
+                <div class="card">
+                    <h3>SpellWise</h3>
+                    <p class="muted">Corrector ortográfico en la página con contador de errores.</p>
+                </div>
+                <div class="card">
+                    <h3>AssistAI</h3>
+                    <p class="muted">Asistente offline: resumen por densidad, extracción de entidades (emails, URLs, precios, fechas) y rechazo honesto de comandos desconocidos.</p>
+                </div>
+                <div class="card">
+                    <h3>StepScribe</h3>
+                    <p class="muted">Graba interacciones (clicks/inputs) en lista persistente; exporta MD/HTML. Sin races read-modify-write.</p>
+                </div>
+                <div class="card">
+                    <h3>ScreenLoom</h3>
+                    <p class="muted">Grabación de pantalla (getDisplayMedia + MediaRecorder), snapshots PNG y HUD de estado.</p>
+                </div>
+                <div class="card">
+                    <h3>ClipDeck</h3>
+                    <p class="muted">Captura, guarda y borra fragmentos del portapapeles.</p>
+                </div>
+                <div class="card">
+                    <h3>ReadStack</h3>
+                    <p class="muted">Lista "léame después" con modos de lectura.</p>
+                </div>
+                <div class="card">
+                    <h3>SessionSaver</h3>
+                    <p class="muted">Guarda y restaura sesiones de pestañas.</p>
+                </div>
+                <div class="card">
+                    <h3>TabNest</h3>
+                    <p class="muted">Organización y agrupación de pestañas.</p>
+                </div>
+                <div class="card">
+                    <h3>TabSnooze</h3>
+                    <p class="muted">Pospone pestañas para más tarde.</p>
+                </div>
+                <div class="card">
+                    <h3>ClipNotes</h3>
+                    <p class="muted">Historial de portapapeles + notas.</p>
+                </div>
+                <div class="card">
+                    <h3>HueLens</h3>
+                    <p class="muted">Filtros de color/tema aplicables a cualquier página.</p>
+                </div>
+                <div class="card">
+                    <h3>LangBridge</h3>
+                    <p class="muted">Puente de traducción/idioma en la página.</p>
+                </div>
+                <div class="card">
+                    <h3>SEOPulse</h3>
+                    <p class="muted">Métricas SEO de la página actual.</p>
+                </div>
+                <div class="card">
+                    <h3>StackScope</h3>
+                    <p class="muted">Huella de stack tecnológico detectada en la página (pendiente S05).</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>GitHub (25 repositorios públicos)</h2>
+            <p class="muted" style="margin-bottom:12px;">Ingeniería de software y código abierto. <a href="https://github.com/HarleyVasquezcom" target="_blank" rel="noopener" style="color:var(--accent-light);">github.com/HarleyVasquezcom</a></p>
+            <div class="tags">
+                <span class="tag">traycer</span>
+                <span class="tag">harleyvasquez-web</span>
+                <span class="tag">harleyvasqueztech</span>
+                <span class="tag">portfolio-demos</span>
+                <span class="tag">bubo-legal</span>
+                <span class="tag">contactos-whatsapp</span>
+                <span class="tag">+18 repos de extensiones MV3</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Generación de leads y marketing digital</h2>
+            <div class="card">
+                <div class="two-col">
+                    <div>
+                        <h3>Metodología</h3>
+                        <p class="muted">Equipo de 7 agentes de IA orquestados por Traycer que curan, enjuagan y validan leads de PYMES en 18 localidades de Bogotá.</p>
+                    </div>
+                    <div>
+                        <h3>Alcance</h3>
+                        <p class="muted">884 leads únicos curados; 1.200+ equipos atendidos; 98% de satisfacción.</p>
+                    </div>
+                </div>
+                <div style="margin-top:14px;">
+                    <h3>Localidades</h3>
+                    <p class="muted">Chapinero, Teusaquillo, Usaquén, La Candelaria, Puente Aranda, Barrios Unidos, Suba, Fontibón, Martínez, Antonmaría, Santa Fe, Simón Bolívar, Rafael Uribe, Ciudad Bolívar, Kennedy, Bosa y más.</p>
+                </div>
+                <div style="margin-top:14px;">
+                    <h3>Canales</h3>
+                    <p class="muted">SEO local, Google Business Profile, reseñas, WhatsApp Business y embudo de ventas orgánico.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Educación</h2>
+            <div class="card">
+                <h3>Tecnólogo en Gestión de Redes de Datos <span class="period">2024 - En formación</span></h3>
+                <div class="sub">SENA · Ficha 3100082 · Convocatoria 1534</div>
+                <p class="muted" style="margin-top:6px;">Inscripción activa (12/10/2024) y envío de documentos (27/11/2025) para la titulación oficial en gestión y administración de redes de datos.</p>
+            </div>
+            <div class="card">
+                <h3>Pregrado en Ingeniería de Sistemas <span class="period">2002 - 2006</span></h3>
+                <div class="sub">Fundación Universitaria San Martín · Campo de la computación</div>
+            </div>
+            <div class="card">
+                <h3>Bachiller (ICFES por validación) <span class="period">2002</span></h3>
+                <div class="sub">Resolución ICFES No. 344 del 15/02/2002</div>
+            </div>
+            <div class="card">
+                <h3>Formación técnica · FENALCO Bogotá</h3>
+                <ul>
+                    <li><strong>2002</strong> — Ensamble, mantenimiento y reparación de computadores.</li>
+                    <li><strong>2002</strong> — Redes: instalación y administración Windows NT 4.0, 2000, XP, Server y Novell.</li>
+                    <li><strong>2003</strong> — Administración de sistemas Linux (Red Hat 9.2).</li>
+                    <li><strong>2010</strong> — Seguridad en redes y soluciones de seguridad informática.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Idiomas y cursos complementarios</h3>
+                <ul>
+                    <li><strong>2002</strong> — Inglés básico (5 niveles), CONFENALCO.</li>
+                    <li><strong>2024</strong> — Bootcamps de desarrollo web (Lógica de programación en JavaScript, Alura + Oracle ONE).</li>
+                    <li>Google Cloud Platform — Fundamentos (Google Cloud Essentials).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Idiomas</h2>
+            <div class="two-col">
+                <div class="card">
+                    <h3>Español</h3>
+                    <div class="sub">Nativo</div>
+                </div>
+                <div class="card">
+                    <h3>Inglés</h3>
+                    <div class="sub">Técnico / Profesional</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <span>CV actualizado agosto 2026</span>
+            <span><a href="https://codepen.io/your-work" target="_blank" rel="noopener">codepen.io/your-work</a></span>
+            <span><a href="https://harleyvasqueztech.vercel.app" target="_blank" rel="noopener">harleyvasqueztech.vercel.app</a></span>
+            <span><a href="https://github.com/HarleyVasquezcom" target="_blank" rel="noopener">github.com/HarleyVasquezcom</a></span>
+        </footer>
+
+    </div>
+</body>
+</html>
